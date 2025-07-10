@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "123824003641",
+    "project_id": "tutorhub-b700f",
+    "storage_bucket": "tutorhub-b700f.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123824003641:android:a64f6a5fa59cbce3180be8",
+        "android_client_info": {
+          "package_name": "org.campusquest.android"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGwSynsrX14cTW28gpg41ni5StWzEI5vE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123824003641:android:48c75466a7b347a5180be8",
+        "android_client_info": {
+          "package_name": "org.tutorhub.multiplatform"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCGwSynsrX14cTW28gpg41ni5StWzEI5vE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
