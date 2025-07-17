@@ -77,7 +77,6 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import kotlinx.coroutines.delay
 import org.campusquest.android.R
-import kotlin.coroutines.coroutineContext
 import kotlin.math.sin
 import kotlin.random.Random
 
@@ -90,7 +89,7 @@ data class Feature(
 
 @Composable
 fun AuthenticationScreen(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     clearAndNavigate: (String) -> Unit,
     viewModel: AuthViewModel = hiltViewModel()
 ) {
@@ -103,24 +102,25 @@ fun AuthenticationScreen(
     val context = LocalContext.current
     val features = listOf(
         Feature(
-            Icons.Default.Book,
-            "Oxford Dictionary",
-            "Comprehensive English dictionary",
-            Color(0xFF3B82F6)
+            icon = Icons.Default.Psychology,
+            title = "Exam Scheduler",
+            description = "Add midterm and final exam dates for each subject",
+            color = Color(0xFF3B82F6)
         ),
         Feature(
-            Icons.Default.Psychology,
-            "AI Learning",
-            "Personalized learning with AI",
-            Color(0xFF8B5CF6)
+            icon = Icons.Default.Book,
+            title = "Export ZIP",
+            description = "Bundle photos by subject/date and share instantly",
+            color = Color(0xFF8B5CF6)
         ),
         Feature(
-            Icons.Default.Group,
-            "Connect Friends",
-            "Learn together with friends",
-            Color(0xFF10B981)
+            icon = Icons.Default.Group,
+            title = "Semester Reset",
+            description = "Clear old data and start a new semester",
+            color = Color(0xFF10B981)
         )
     )
+
 
     // Animations
     val infiniteTransition = rememberInfiniteTransition(label = "infinite")
@@ -209,7 +209,7 @@ fun AuthenticationScreen(
                         contentAlignment = Alignment.Center
                     ) {
                         Image(
-                            painter = painterResource(R.drawable.ic_wordflow),
+                            painter = painterResource(R.drawable.ic_snapcam),
                             contentDescription = null,
                             modifier = Modifier.size(90.dp)
                         )

@@ -60,6 +60,14 @@ android {
         }
     }
 }
+configurations.all {
+    resolutionStrategy.eachDependency {
+        if (requested.group == "com.intellij" && requested.name == "annotations") {
+            useTarget("org.jetbrains:annotations:23.0.0")
+            because("Avoid duplicate classes from com.intellij and org.jetbrains")
+        }
+    }
+}
 
 
 dependencies {
@@ -68,8 +76,12 @@ dependencies {
     implementation(libs.androidx.credentials.play.services.auth)
     implementation(libs.googleid)
     implementation(libs.play.services.auth)
-    implementation(libs.androidx.work.runtime.ktx)
+//    implementation(libs.androidx.work.runtime.ktx)
     implementation(libs.androidx.datastore.core.android)
+    implementation(libs.androidx.media3.common.ktx)
+    implementation(libs.androidx.room.compiler)
+    implementation(libs.androidx.databinding.adapters)
+    implementation(libs.firebase.messaging)
     apply(plugin = "com.google.gms.google-services")
     implementation("androidx.core:core-splashscreen:1.0.0-beta02")
     implementation("androidx.datastore:datastore-preferences-core:1.1.7")
@@ -95,14 +107,24 @@ dependencies {
     implementation(libs.coil)
     implementation(libs.okhttp)
     implementation(libs.moshi)
+    implementation("com.google.code.gson:gson:2.13.1")
     implementation("androidx.credentials:credentials:1.6.0-alpha03")
     implementation("androidx.credentials:credentials-play-services-auth:1.6.0-alpha03")
     coreLibraryDesugaring ("com.android.tools:desugar_jdk_libs:2.1.5")
     // Dagger Hilt Bundle
+    implementation("androidx.media3:media3-exoplayer:1.7.1")
+    implementation("androidx.media3:media3-ui:1.7.1")
     implementation(libs.bundles.dagger.hilt)
     ksp(libs.dagger.hilt.compiler)
     implementation ("com.google.android.exoplayer:exoplayer:2.19.1")
 
+    implementation(libs.room.runtime)
+    implementation(libs.okhttp.logging.interceptor)
+    val work_version = "2.10.2"
+    implementation("androidx.work:work-runtime-ktx:${work_version}")
+    // If this project uses any Kotlin source, use Kotlin Symbol Processing (KSP)
+    // See Add the KSP plugin to your project
+    ksp(libs.androidx.room.compiler)
 // JSON parsing
 //    implementation ("com.google.code.gson:gson:2.12.1")
 }

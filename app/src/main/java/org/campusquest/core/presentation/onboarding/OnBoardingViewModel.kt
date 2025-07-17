@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import org.campusquest.android.ui.navigate.Destination
+import org.campusquest.core.presentation.ui.navigate.Destination
 import org.campusquest.core.domain.usecase.UseCase
 import javax.inject.Inject
 

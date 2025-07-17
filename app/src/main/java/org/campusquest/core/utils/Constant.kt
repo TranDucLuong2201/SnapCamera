@@ -1,26 +1,58 @@
 package org.campusquest.core.utils
 
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.outlined.MenuBook
+import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.RateReview
+import androidx.compose.material.icons.outlined.School
 import org.campusquest.android.R
+import org.campusquest.core.presentation.ui.navigate.Destination
+import org.campusquest.core.presentation.ui.components.NavigationItem
 import org.campusquest.core.presentation.onboarding.OnBoarding
 
 object Constant {
     const val PREFERENCES_NAME = "wordflow_preference"
     const val PREFERENCES_KEY = "on_boarding_completed"
-    val ON_BOARDING_MODEL = listOf<OnBoarding>(
+    val ON_BOARDING_MODEL = listOf(
         OnBoarding(
-            image = R.drawable.group_1,
-            title = "Challenge Friends & Level Up",
-            content = " Team up or compete with friends on vocabulary challenges, earn badges, and climb leaderboards daily. Friendly competition keeps learning fun and motivating."
+            image = R.drawable.onboarding_schedule,
+            title = "Set Up Your Timetable",
+            content = "Input your weekly class schedule once. The app will auto-track your sessions and suggest which subject you're currently attending."
         ),
         OnBoarding(
-            image = R.drawable.group_2,
-            title = "Learn Anywhere, Anytime",
-            content = "Access nearly 6,000 Oxford‑level words—complete with real‑sentence examples and crisp pronunciations—wherever you go. Whether you're commuting, on a break, or winding down, your next lesson is always ready."
+            image = R.drawable.onboarding_camera,
+            title = "Capture Study Moments",
+            content = "Take photos during your classes, and we'll organize them by subject and date for easy tracking and documentation."
         ),
         OnBoarding(
-            image = R.drawable.group_3,
-            title = "Offline Dictionary + Online Pronunciation",
-            content = "Enjoy our comprehensive offline dictionary with over 5,500 Oxford words, and tap play for online pronunciation anytime. Seamless learning, no matter your connection."
+            image = R.drawable.onboarding_export,
+            title = "Export & Share Instantly",
+            content = "At the end of each day or semester, export all your captured photos into a ZIP file and share them with friends in a tap."
         )
     )
+    val BOTTOM_NAVIGATION_ITEMS = listOf(
+        NavigationItem(
+            route = Destination.Home.route,
+            icon = Icons.Outlined.Home,
+            label = "Today"
+        ),
+        NavigationItem(
+            route = Destination.Schedule.route,
+            icon = Icons.AutoMirrored.Outlined.MenuBook,
+            label = "Schedule"
+        ),
+        NavigationItem(
+            route = Destination.Gallery.route,
+            icon = Icons.Outlined.RateReview,
+            label = "Gallery"
+        ),
+        NavigationItem(
+            route = Destination.Profile.route,
+            icon = Icons.Outlined.School,
+            label = "Profile"
+        )
+    )
+    const val SCHEDULE_TABLE = "schedule"
+    const val PHOTO_TABLE = "photo"
+    const val EXAM_TABLE = "exam"
 }

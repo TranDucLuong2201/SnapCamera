@@ -1,23 +1,18 @@
 package org.campusquest.core.presentation.auth
 
 import android.app.Activity
-import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import org.campusquest.android.ui.navigate.Destination
+import org.campusquest.core.presentation.ui.navigate.Destination
 import org.campusquest.core.domain.model.User
 import org.campusquest.core.domain.repository.AuthRepository
-import org.campusquest.core.domain.usecase.UseCase
 import javax.inject.Inject
 
 @HiltViewModel

@@ -35,9 +35,15 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import kotlinx.coroutines.launch
 
+data class OnBoarding(
+    val image: Int,
+    val title: String,
+    val content: String
+)
+
 @Composable
 fun OnboardingScreen(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     pageItems: List<OnBoarding>,
     clearAndNavigate: (String) -> Unit,
     viewModel: OnBoardingViewModel = hiltViewModel()
