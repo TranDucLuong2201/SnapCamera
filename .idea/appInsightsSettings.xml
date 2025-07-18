@@ -8,8 +8,8 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="org.campusquest.android" />
-                  <option name="mobileSdkAppId" value="1:123824003641:android:a64f6a5fa59cbce3180be8" />
+                  <option name="appId" value="org.campusquest.android.dev" />
+                  <option name="mobileSdkAppId" value="1:123824003641:android:af38adc47aa925f2180be8" />
                   <option name="projectId" value="tutorhub-b700f" />
                   <option name="projectNumber" value="123824003641" />
                 </ConnectionSetting>

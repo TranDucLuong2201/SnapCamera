@@ -13,6 +13,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.OAuthProvider
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.tasks.await
+import org.campusquest.android.BuildConfig
 import org.campusquest.core.data.mapper.toUser
 import org.campusquest.core.domain.model.User
 import org.campusquest.core.domain.repository.AuthRepository
@@ -32,7 +33,7 @@ class AuthRepositoryImpl @Inject constructor(
 
     override suspend fun signInWithGoogle(): Result<User> = runCatching {
         val googleIdOption = GetGoogleIdOption.Builder()
-            .setServerClientId("123824003641-hgibkoo0qpv3a0uljd2rvg5thvej7qus.apps.googleusercontent.com")
+            .setServerClientId(BuildConfig.API_KEY)
             .setFilterByAuthorizedAccounts(false)
             .build()
 
