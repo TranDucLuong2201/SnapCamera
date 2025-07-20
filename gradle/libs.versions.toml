@@ -1,0 +1,78 @@
+[versions]
+compileSdk = "36"
+minSdk = "24"
+targetSdk = "36"
+
+activityCompose = "1.10.1"
+agp = "8.11.1"
+appcompat = "1.7.1"
+benManesVersion = "0.52.0"
+composeBom = "2025.07.00"
+coreKtx = "1.16.0"
+credentials = "1.5.0"
+credentialsPlayServicesAuth = "1.5.0"
+dagger = "2.57"
+espressoCore = "3.6.1"
+firebaseAuth = "23.2.1"
+googleGmsGoogleServices = "4.4.3"
+googleid = "1.1.1"
+junit = "4.13.2"
+junitVersion = "1.2.1"
+kotlin = "2.2.0"
+ksp = "2.2.0-2.0.2"
+ktlint = "1.0.0"
+lifecycleRuntimeKtx = "2.9.2"
+littlerobotsVersion = "1.0.0"
+material = "1.12.0"
+navigation-fragment = "1.2.0"
+spotless = "7.1.0"
+detektVersion = "1.23.8"
+
+[libraries]
+androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+androidx-compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
+androidx-core-ktx = { module = "androidx.core:core-ktx", version.ref = "coreKtx" }
+androidx-credentials = { module = "androidx.credentials:credentials", version.ref = "credentials" }
+androidx-credentials-play-services-auth = { module = "androidx.credentials:credentials-play-services-auth", version.ref = "credentialsPlayServicesAuth" }
+androidx-espresso-core = { module = "androidx.test.espresso:espresso-core", version.ref = "espressoCore" }
+androidx-junit = { module = "androidx.test.ext:junit", version.ref = "junitVersion" }
+androidx-lifecycle-runtime-ktx = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-material3 = { module = "androidx.compose.material3:material3" }
+androidx-ui = { module = "androidx.compose.ui:ui" }
+androidx-ui-graphics = { module = "androidx.compose.ui:ui-graphics" }
+androidx-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4" }
+androidx-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
+androidx-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+androidx-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+# Dagger Hilt
+dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagger" }
+dagger-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "dagger" }
+dagger-hilt-test = { module = "com.google.dagger:hilt-android-testing", version.ref = "dagger" }
+firebase-auth = { module = "com.google.firebase:firebase-auth", version.ref = "firebaseAuth" }
+googleid = { module = "com.google.android.libraries.identity.googleid:googleid", version.ref = "googleid" }
+hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "navigation-fragment" }
+junit = { module = "junit:junit", version.ref = "junit" }
+material = { module = "com.google.android.material:material", version.ref = "material" }
+detekt-formatting = { module = "io.gitlab.arturbosch.detekt:detekt-formatting", version.ref = "detektVersion" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+ben-manes = { id = "com.github.ben-manes.versions", version.ref = "benManesVersion" }
+google-gms-google-services = { id = "com.google.gms.google-services", version.ref = "googleGmsGoogleServices" }
+gradle-spotless = { id = "com.diffplug.gradle.spotless", version.ref = "spotless" }
+hilt = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+littlerobots = { id = "nl.littlerobots.version-catalog-update", version.ref = "littlerobotsVersion" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version = "detektVersion" }
+
+[bundles]
+# Dagger Hilt
+dagger-hilt = [
+    "dagger-hilt-android",
+    "dagger-hilt-test",
+    "hilt-navigation-compose",
+]
