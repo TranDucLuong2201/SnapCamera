@@ -3,6 +3,8 @@ plugins {
 	alias(libs.plugins.kotlin.android)
 	alias(libs.plugins.ksp)
 	alias(libs.plugins.hilt)
+	alias(libs.plugins.kotlin.parcelize)
+	alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -35,11 +37,17 @@ android {
 		}
 	}
 }
-
+ksp {
+	arg("room.schemaLocation", "$projectDir/schemas")
+}
 dependencies {
 	implementation(libs.bundles.dagger.hilt)
 	ksp(libs.dagger.hilt.compiler)
+	implementation(libs.kotlinx.serialization.json)
+	implementation(libs.gson)
 
+	implementation(libs.androidx.room.runtime)
+	ksp(libs.androidx.room.compiler)
 	implementation(libs.androidx.core.ktx)
 	implementation(libs.androidx.appcompat)
 	implementation(libs.material)

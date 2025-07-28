@@ -65,33 +65,33 @@ snapcamera/
 
     - [ x ] **Test**: Run `./gradlew :feature:build` for each module
 
-- [ ] **Task 1.3**: Setup Code Quality Tools
+- [ x ] **Task 1.3**: Setup Code Quality Tools
 
     - [ x ] Configure Spotless with Kotlin format
 
     - [ x ] Setup Detekt with custom rules
 
-    - [ ] Configure Git hooks (pre-commit, pre-push)
+    - [ x ] Configure Git hooks (pre-commit, pre-push)
 
-    - [ ] **Definition of Done**: Code quality checks pass in CI
+    - [ x ] **Definition of Done**: Code quality checks pass in CI
 
-    - [ ] **Test**: Run `./gradlew spotlessCheck detekt`
+    - [ x ] **Test**: Run `./gradlew spotlessCheck detekt`
 
-- [ ] **Task 1.4**: Version Catalog & Dependencies
+- [ x ] **Task 1.4**: Version Catalog & Dependencies
 
-    - [ ] Create `libs.versions.toml` with all dependencies
+    - [ x ] Create `libs.versions.toml` with all dependencies
 
-    - [ ] Configure Compose BOM, Material 3, Navigation
+    - [ x ] Configure Compose BOM, Material 3, Navigation
 
-    - [ ] Add Room, Hilt, CameraX, Firebase dependencies
+    - [ x ] Add Room, Hilt, CameraX, Firebase dependencies
 
-    - [ ] **Definition of Done**: No version conflicts, builds under 2 minutes
+    - [ x ] **Definition of Done**: No version conflicts, builds under 2 minutes
 
 #### **Epic: Core Infrastructure**
 
 - [ ] **Task 1.5**: Database Layer Foundation
 
-    - [ ] Create Room database with all entities
+    - [ x ] Create Room database with all entities
 
     - [ ] Implement DAOs with basic CRUD operations
 

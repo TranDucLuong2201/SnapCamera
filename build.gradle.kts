@@ -10,16 +10,20 @@ plugins {
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.google.gms.google.services) apply false
     alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.hilt) apply false
     alias(libs.plugins.gradle.spotless) apply false
     alias(libs.plugins.ben.manes)
     alias(libs.plugins.littlerobots)
-    id("io.gitlab.arturbosch.detekt") version("1.23.8")
+    alias(libs.plugins.detekt)
+    alias(libs.plugins.kotlin.parcelize) apply false
+    alias(libs.plugins.kotlin.serialization) apply false
 }
 detekt {
     toolVersion = "1.23.8"
     config.setFrom(file("config/detekt/detekt.yml"))
     buildUponDefaultConfig = true
 }
+
 // Kotlin DSL
 tasks.withType<Detekt>().configureEach {
     reports {
@@ -30,6 +34,7 @@ tasks.withType<Detekt>().configureEach {
     }
 }
 allprojects {
+
     // Apply spotless to all projects including root (if root has Kotlin files)
     plugins.withId("com.diffplug.spotless") {
         configure<com.diffplug.gradle.spotless.SpotlessExtension> {

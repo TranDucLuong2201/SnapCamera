@@ -41,4 +41,4 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "SnapCamera"
-include(":app",":core",":feature")
+include(":app",":core")

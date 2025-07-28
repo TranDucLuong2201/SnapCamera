@@ -8,7 +8,7 @@ plugins {
 	alias(libs.plugins.google.gms.google.services)
 	alias(libs.plugins.ksp)
 	alias(libs.plugins.hilt)
-	id("io.gitlab.arturbosch.detekt") version("1.23.8")
+	alias(libs.plugins.detekt)
 }
 android {
 	namespace = "org.android.snap.snapcamera"
@@ -69,14 +69,6 @@ android {
 			buildConfigField("String", "API_KEY", "\"${apiKey}\"")
 			buildConfigField("boolean", "USE_MOCK_API", "true") // ví dụ bật mock API cho dev
 		}
-		create("staging") {
-			dimension = "environment"
-			applicationIdSuffix = ".staging"
-			versionNameSuffix = "-stg"
-			resValue("string", "app_name", "SnapCamera Staging")
-			buildConfigField("String", "API_KEY", "\"${apiKey}\"")
-			buildConfigField("boolean", "USE_MOCK_API", "false")
-		}
 		create("production") {
 			dimension = "environment"
 			resValue("string", "app_name", "SnapCamera")
@@ -92,6 +84,7 @@ android {
 	kotlin {
 		compilerOptions {
 			optIn.add("kotlin.RequiresOptIn")
+			freeCompilerArgs = listOf("-XXLanguage:+PropertyParamAnnotationDefaultTargetMode")
 		}
 	}
 	buildFeatures {
@@ -113,12 +106,14 @@ android {
 			)
 	}
 }
+
 ksp {
 	arg("room.schemaLocation", "$projectDir/schemas")
 }
 
 dependencies {
 
+	implementation(projects.core)
 	implementation(libs.androidx.core.ktx)
 	implementation(libs.androidx.lifecycle.runtime.ktx)
 	implementation(libs.androidx.activity.compose)
@@ -131,6 +126,8 @@ dependencies {
 	implementation(libs.androidx.credentials)
 	implementation(libs.androidx.credentials.play.services.auth)
 	implementation(libs.googleid)
+	implementation(libs.androidx.datastore.core.android)
+	implementation(libs.firebase.database)
 	testImplementation(libs.junit)
 	androidTestImplementation(libs.androidx.junit)
 	androidTestImplementation(libs.androidx.espresso.core)
@@ -138,8 +135,20 @@ dependencies {
 	androidTestImplementation(libs.androidx.ui.test.junit4)
 	debugImplementation(libs.androidx.ui.tooling)
 	debugImplementation(libs.androidx.ui.test.manifest)
-
-	detektPlugins("io.gitlab.arturbosch.detekt:detekt-formatting:1.23.8")
+	testImplementation(libs.robolectric)
+	testImplementation(libs.mockk.android)
+	implementation(libs.androidx.datastore.preferences.core)
+	implementation(libs.androidx.datastore.preferences)
+	// Truth for assertions (optional, but recommended)
+	testImplementation(libs.truth)
+	detektPlugins(libs.detekt.formatting)
 	implementation(libs.bundles.dagger.hilt)
 	ksp(libs.dagger.hilt.compiler)
+	implementation(libs.androidx.room.runtime)
+	testImplementation(libs.mockk) // hoặc version mới nhất
+	testImplementation(libs.kotlinx.coroutines.test)
+	ksp(libs.androidx.room.compiler) // Cần thêm dòng này nếu app dùng Room Entity/DAO từ module khác
+
+	implementation(libs.bundles.camerax)
+	testImplementation(kotlin("test"))
 }
